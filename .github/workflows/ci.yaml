@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ${{ matrix.os }}
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
     strategy:
       matrix:
         include:
@@ -60,7 +63,4 @@ jobs:
           fetch-depth: 0
 
       - name: Build ibazel
-        concurrency:
-          group: ${{ github.ref }}
-          cancel-in-progress: true
         run: bazel build //cmd/ibazel:ibazel --config release ${{ matrix.build_flags }} ${{ matrix.cpu_flag }}
