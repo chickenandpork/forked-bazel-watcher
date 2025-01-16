@@ -38,12 +38,12 @@ jobs:
             cpu_flag:
             ext: ".exe"
 
-          - name: darwin_amd64
-            artifact: ibazel_darwin_amd64
-            os: macos-latest
-            build_flags: --platforms=@io_bazel_rules_go//go/toolchain:darwin_amd64_cgo
-            cpu_flag: --cpu=darwin_amd64
-            ext: ""
+          #- name: darwin_amd64
+          #  artifact: ibazel_darwin_amd64
+          #  os: macos-latest
+          #  build_flags: --platforms=@io_bazel_rules_go//go/toolchain:darwin_amd64_cgo
+          #  cpu_flag: --cpu=darwin_amd64
+          #  ext: ""
 
           - name: darwin_arm64
             artifact: ibazel_darwin_arm64
