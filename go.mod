@@ -17,4 +17,4 @@ require google.golang.org/protobuf v1.36.3 // indirect
 
 go 1.22.0
 
-toolchain go1.23.4
+toolchain go1.23.5
