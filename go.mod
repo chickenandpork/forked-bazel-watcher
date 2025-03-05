@@ -11,10 +11,10 @@ require (
 	github.com/mattn/go-shellwords v1.0.12
 )
 
-require golang.org/x/sys v0.30.0
+require golang.org/x/sys v0.31.0
 
 require google.golang.org/protobuf v1.36.5 // indirect
 
-go 1.22.0
+go 1.23.0
 
 toolchain go1.24.1
