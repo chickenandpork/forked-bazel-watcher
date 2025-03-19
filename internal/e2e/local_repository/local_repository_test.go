@@ -73,15 +73,18 @@ func TestMain(m *testing.M) {
 					log.Fatalf("os.Mkdir(%q): %v", wd, err)
 				}
 				for file, contents := range map[string]string{
+					".bazelversion": "6.5.0",
 					"BUILD.bazel": secondaryBuild,
 					"lib.sh":      secondaryLib,
 					"WORKSPACE":   "",
+					"MODULE.bazel":   "",
 				} {
 					if err := ioutil.WriteFile(filepath.Join(wd, file), []byte(contents), 0777); err != nil {
 						log.Fatalf("Failed to write file %q: %v", file, err)
 					}
 				}
 			}
+			log.Printf("Secondary created at %s", secondaryWd)
 			return nil
 		},
 	})

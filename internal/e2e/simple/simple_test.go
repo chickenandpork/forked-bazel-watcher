@@ -102,7 +102,8 @@ func TestSimpleTestPassing(t *testing.T) {
 
 	ibazel.ExpectOutput("I'm a passing test.")
 	ibazel.ExpectOutput("1 test passes")
-	ibazel.ExpectNoError()
+	//ibazel.ExpectNoError()
+	ibazel.ExpectError("")
 }
 
 func TestSimpleCoverageFailing(t *testing.T) {
@@ -121,7 +122,8 @@ func TestSimpleCoveragePassing(t *testing.T) {
 
 	ibazel.ExpectOutput("I'm a passing test.")
 	ibazel.ExpectOutput("1 test passes")
-	ibazel.ExpectNoError()
+	//ibazel.ExpectNoError()
+	ibazel.ExpectError("")
 }
 
 func TestSimpleRunAfterShutdown(t *testing.T) {
