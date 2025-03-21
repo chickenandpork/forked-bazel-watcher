@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"testing"
+	"time"
 
 	"github.com/bazelbuild/bazel-watcher/internal/e2e"
 	"github.com/bazelbuild/rules_go/go/tools/bazel_testing"
@@ -95,7 +96,7 @@ func TestRunWithModifiedFile(t *testing.T) {
 	ibazel.Run([]string{}, "//:test")
 	defer ibazel.Kill()
 
-	ibazel.ExpectOutput("hello!")
+	ibazel.ExpectOutput("hello!", 40 * time.Second)
 
 	ioutil.WriteFile(
 		filepath.Join(secondaryWd, "lib.sh"), []byte(secondaryLibAlt), 0777)

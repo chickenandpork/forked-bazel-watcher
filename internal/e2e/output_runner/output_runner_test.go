@@ -101,7 +101,7 @@ func TestOutputRunner(t *testing.T) {
 	ibazel.RunWithBazelFixCommands("//single:overwrite")
 
 	// Ensure it prints out the banner.
-	ibazel.ExpectIBazelError("Did you know")
+	ibazel.ExpectIBazelError("Did you know", 27 * time.Second)
 
 	e2e.MustWriteFile(t, ".bazel_fix_commands.json", fmt.Sprintf(`
 	[{

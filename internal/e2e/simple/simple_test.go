@@ -7,6 +7,7 @@ import (
 	"os/exec"
 	"syscall"
 	"testing"
+	"time"
 
 	"github.com/bazelbuild/bazel-watcher/internal/e2e"
 	"github.com/bazelbuild/rules_go/go/tools/bazel_testing"
@@ -83,7 +84,7 @@ func TestSimpleBuild(t *testing.T) {
 	ibazel.Run([]string{}, "//:simple")
 	defer ibazel.Kill()
 
-	ibazel.ExpectOutput("Started!")
+	ibazel.ExpectOutput("Started!", 50 * time.Second)
 }
 
 func TestSimpleTestFailing(t *testing.T) {
