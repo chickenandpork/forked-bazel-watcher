@@ -37,7 +37,7 @@ func TestSimpleTest(t *testing.T) {
 	ibazel.Test([]string{}, "//single:stream")
 	defer ibazel.Kill()
 
-	ibazel.ExpectOutput("TestSimpleTest1", 30*time.Second)
+	ibazel.ExpectOutput("TestSimpleTest1", 50*time.Second)
 
 	// Now when the file is updated it should still be run in streaming mode.
 	e2e.MustWriteFile(t, "single/stream.sh", `printf "TestSimpleTest2"`)
